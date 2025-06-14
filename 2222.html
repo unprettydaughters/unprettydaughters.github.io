@@ -1,0 +1,456 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>못난이 삼돌이 영문법 - 제1과</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700&display=swap');
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', -apple-system, BlinkMacSystemFont, sans-serif;
+            line-height: 1.8;
+            color: #2c3e50;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            min-height: 100vh;
+            padding: 20px;
+        }
+        
+        .book {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 20px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.15);
+            overflow: hidden;
+        }
+        
+        .cover {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 80px 60px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cover::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.1'%3E%3Ccircle cx='30' cy='30' r='4'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E") repeat;
+            animation: float 20s linear infinite;
+        }
+        
+        @keyframes float {
+            0% { transform: translate(-50%, -50%) rotate(0deg); }
+            100% { transform: translate(-50%, -50%) rotate(360deg); }
+        }
+        
+        .cover h1 {
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cover .subtitle {
+            font-size: 1.5rem;
+            font-weight: 300;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .cover .lesson-number {
+            font-size: 2rem;
+            font-weight: 500;
+            margin-top: 30px;
+            position: relative;
+            z-index: 2;
+        }
+        
+        .content {
+            padding: 60px;
+        }
+        
+        .chapter {
+            margin-bottom: 80px;
+        }
+        
+        .chapter-title {
+            color: #667eea;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 40px;
+            text-align: center;
+            position: relative;
+        }
+        
+        .chapter-title::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            border-radius: 2px;
+        }
+        
+        .section-title {
+            color: #2c3e50;
+            font-size: 1.8rem;
+            font-weight: 600;
+            margin: 40px 0 25px 0;
+            border-left: 5px solid #667eea;
+            padding-left: 20px;
+        }
+        
+        .highlight {
+            background: linear-gradient(135deg, #fff9c4, #fff3cd);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #ffc107;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(255, 193, 7, 0.1);
+        }
+        
+        .note {
+            background: linear-gradient(135deg, #e3f2fd, #bbdefb);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #2196f3;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(33, 150, 243, 0.1);
+        }
+        
+        .warning {
+            background: linear-gradient(135deg, #ffebee, #ffcdd2);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 5px solid #f44336;
+            margin: 30px 0;
+            box-shadow: 0 5px 15px rgba(244, 67, 54, 0.1);
+        }
+        
+        .magic-formula {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 20px;
+            text-align: center;
+            margin: 40px 0;
+            box-shadow: 0 15px 35px rgba(102, 126, 234, 0.3);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .magic-formula::before {
+            content: '✨';
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            font-size: 2rem;
+            opacity: 0.7;
+        }
+        
+        .train-metaphor {
+            background: linear-gradient(135deg, #f8f9fa, #e9ecef);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 30px 0;
+            border: 2px solid #dee2e6;
+        }
+        
+        .comparison-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 30px 0;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+        
+        .comparison-table th {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 20px;
+            font-weight: 600;
+            text-align: center;
+        }
+        
+        .comparison-table td {
+            padding: 20px;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            background: white;
+        }
+        
+        .comparison-table tr:hover td {
+            background: #f8f9fa;
+        }
+        
+        .key-insight {
+            background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 100%);
+            color: #2c3e50;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 40px 0;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(255, 154, 158, 0.2);
+        }
+        
+        blockquote {
+            font-style: italic;
+            color: #7f8c8d;
+            border-left: 4px solid #ecf0f1;
+            padding: 20px;
+            margin: 30px 0;
+            background: #fafafa;
+            border-radius: 0 10px 10px 0;
+        }
+        
+        .visual-metaphor {
+            text-align: center;
+            margin: 40px 0;
+            padding: 30px;
+            background: linear-gradient(135deg, #ffecd2 0%, #fcb69f 100%);
+            border-radius: 15px;
+        }
+        
+        .chapter-summary {
+            background: linear-gradient(135deg, #d299c2 0%, #fef9d7 100%);
+            padding: 30px;
+            border-radius: 15px;
+            margin: 40px 0;
+            border: 2px solid #d299c2;
+        }
+        
+        p {
+            margin-bottom: 20px;
+            font-size: 1.1rem;
+        }
+        
+        ul, ol {
+            margin: 20px 0;
+            padding-left: 30px;
+        }
+        
+        li {
+            margin-bottom: 10px;
+            font-size: 1.1rem;
+        }
+        
+        @media print {
+            body {
+                background: white;
+                padding: 0;
+            }
+            
+            .book {
+                box-shadow: none;
+                border-radius: 0;
+            }
+            
+            .cover {
+                page-break-after: always;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .content {
+                padding: 30px;
+            }
+            
+            .cover {
+                padding: 50px 30px;
+            }
+            
+            .cover h1 {
+                font-size: 2.5rem;
+            }
+            
+            .chapter-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="book">
+        <!-- 표지 -->
+        <div class="cover">
+            <h1>못난이 삼돌이 영문법</h1>
+            <p class="subtitle">순서만 알면 영어가 쉬워진다</p>
+            <p class="lesson-number">제1과: 영어의 순서</p>
+        </div>
+        
+        <!-- 본문 -->
+        <div class="content">
+            <div class="chapter">
+                <h2 class="chapter-title">제1과: 영어의 순서</h2>
+                
+                <h3 class="section-title">영어에서 제일 중요한 게 뭘까요?</h3>
+                
+                <p>제가 생각하는 제일 중요한 것은 <strong>순서</strong>입니다. 영어의 순서.</p>
+                
+                <blockquote>
+                    <strong>영어는 기차와 같습니다. 순서가 정해져 있고, 그 순서는 절대 바뀌지 않습니다.</strong>
+                </blockquote>
+                
+                <div class="train-metaphor">
+                    <p>기차를 생각해 보세요. 3칸짜리 기차가 간다고 생각해 보세요. 움직이는 그 기차의 순서가 바뀔 수 있을까요? 기차 칸의 순서는 바뀌지 않습니다. 한 번 앞에 있으면 계속 앞에 있죠. 뒤에 오는 칸은 계속 그 뒤에만 있습니다.</p>
+                    
+                    <div class="visual-metaphor">
+                        <svg width="500" height="200" viewBox="0 0 500 200" style="max-width: 100%; height: auto;">
+                            <!-- 기차 레일 -->
+                            <line x1="30" y1="160" x2="470" y2="160" stroke="#8B4513" stroke-width="6"/>
+                            <line x1="30" y1="170" x2="470" y2="170" stroke="#8B4513" stroke-width="6"/>
+                            <!-- 레일 침목들 -->
+                            <rect x="50" y="155" width="4" height="20" fill="#654321"/>
+                            <rect x="80" y="155" width="4" height="20" fill="#654321"/>
+                            <rect x="110" y="155" width="4" height="20" fill="#654321"/>
+                            <rect x="140" y="155" width="4" height="20" fill="#654321"/>
+                            <rect x="170" y="155" width="4" height="20" fill="#654321"/>
+                            <rect x="200" y="155" width="4" height="20" fill="#654321"/>
+                            <rect x="230" y="155" width="4" height="20" fill="#654321"/>
+                            <rect x="260" y="155" width="4" height="20" fill="#654321"/>
+                            <rect x="290" y="155" width="4" height="20" fill="#654321"/>
+                            <rect x="320" y="155" width="4" height="20" fill="#654321"/>
+                            <rect x="350" y="155" width="4" height="20" fill="#654321"/>
+                            <rect x="380" y="155" width="4" height="20" fill="#654321"/>
+                            <rect x="410" y="155" width="4" height="20" fill="#654321"/>
+                            <rect x="440" y="155" width="4" height="20" fill="#654321"/>
+                            
+                            <!-- 기차 엔진 (주어) -->
+                            <rect x="80" y="90" width="100" height="60" rx="10" ry="10" fill="#3498db" stroke="#2c3e50" stroke-width="3"/>
+                            <!-- 엔진 굴뚝 -->
+                            <rect x="150" y="60" width="20" height="30" rx="5" ry="5" fill="#2c3e50"/>
+                            <!-- 엔진 앞부분 -->
+                            <rect x="60" y="110" width="25" height="20" rx="5" ry="5" fill="#2980b9"/>
+                            <!-- 엔진 바퀴 -->
+                            <circle cx="100" cy="150" r="18" fill="#2c3e50" stroke="#34495e" stroke-width="2"/>
+                            <circle cx="100" cy="150" r="10" fill="#95a5a6"/>
+                            <circle cx="160" cy="150" r="18" fill="#2c3e50" stroke="#34495e" stroke-width="2"/>
+                            <circle cx="160" cy="150" r="10" fill="#95a5a6"/>
+                            <!-- 엔진 텍스트 -->
+                            <text x="130" y="125" text-anchor="middle" fill="white" font-weight="bold" font-size="28">S</text>
+                            <text x="130" y="80" text-anchor="middle" fill="#2c3e50" font-weight="bold" font-size="16">주어</text>
+                            
+                            <!-- 기차 칸 1 (동사) -->
+                            <rect x="190" y="90" width="100" height="60" rx="10" ry="10" fill="#e74c3c" stroke="#2c3e50" stroke-width="3"/>
+                            <!-- 칸1 바퀴 -->
+                            <circle cx="210" cy="150" r="18" fill="#2c3e50" stroke="#34495e" stroke-width="2"/>
+                            <circle cx="210" cy="150" r="10" fill="#95a5a6"/>
+                            <circle cx="270" cy="150" r="18" fill="#2c3e50" stroke="#34495e" stroke-width="2"/>
+                            <circle cx="270" cy="150" r="10" fill="#95a5a6"/>
+                            <!-- 칸1 텍스트 -->
+                            <text x="240" y="125" text-anchor="middle" fill="white" font-weight="bold" font-size="28">V</text>
+                            <text x="240" y="80" text-anchor="middle" fill="#2c3e50" font-weight="bold" font-size="16">동사</text>
+                            
+                            <!-- 기차 칸 2 (목적어) -->
+                            <rect x="300" y="90" width="100" height="60" rx="10" ry="10" fill="#27ae60" stroke="#2c3e50" stroke-width="3"/>
+                            <!-- 칸2 바퀴 -->
+                            <circle cx="320" cy="150" r="18" fill="#2c3e50" stroke="#34495e" stroke-width="2"/>
+                            <circle cx="320" cy="150" r="10" fill="#95a5a6"/>
+                            <circle cx="380" cy="150" r="18" fill="#2c3e50" stroke="#34495e" stroke-width="2"/>
+                            <circle cx="380" cy="150" r="10" fill="#95a5a6"/>
+                            <!-- 칸2 텍스트 -->
+                            <text x="350" y="125" text-anchor="middle" fill="white" font-weight="bold" font-size="28">O</text>
+                            <text x="350" y="80" text-anchor="middle" fill="#2c3e50" font-weight="bold" font-size="16">목적어</text>
+                            
+                            <!-- 기차 연결부 -->
+                            <rect x="175" y="115" width="20" height="20" rx="3" ry="3" fill="#34495e"/>
+                            <rect x="285" y="115" width="20" height="20" rx="3" ry="3" fill="#34495e"/>
+                            
+                            <!-- 증기 효과 -->
+                            <ellipse cx="160" cy="50" rx="8" ry="4" fill="#95a5a6" opacity="0.7"/>
+                            <ellipse cx="155" cy="40" rx="6" ry="3" fill="#95a5a6" opacity="0.5"/>
+                            <ellipse cx="165" cy="35" rx="4" ry="2" fill="#95a5a6" opacity="0.3"/>
+                            
+                            <!-- 방향 화살표 (왼쪽으로 변경) -->
+                            <path d="M 50 120 L 20 120" stroke="#f39c12" stroke-width="4" fill="none"/>
+                            <polygon points="30,110 10,120 30,130" fill="#f39c12"/>
+                        </svg>
+                    </div>
+                </div>
+                
+                <p>영어의 순서가 그렇습니다. 순서가 바뀔 수 없습니다. 그 순서대로만 말해야 합니다.</p>
+                
+                <h3 class="section-title">영어의 기본 순서</h3>
+                
+                <div class="magic-formula">
+                    <h3>🚂 영어의 마법 공식</h3>
+                    <p style="font-size: 2rem; font-weight: bold; margin: 20px 0;">주어(S) → 동사(V) → 목적어(O)</p>
+                </div>
+                
+                <ul>
+                    <li><strong>주어(Subject)</strong>: 주체가 되는 사람이나 사물</li>
+                    <li><strong>동사(Verb)</strong>: 그 주체가 하는 행동</li>
+                    <li><strong>목적어(Object)</strong>: 행동의 대상</li>
+                </ul>
+                
+                <div class="warning">
+                    <p>⚠️ <strong>중요</strong>: 만약 순서가 바뀌면 뜻이 바뀌게 됩니다. 그래서 순서를 꼭 지켜야 합니다.</p>
+                </div>
+                
+                <h3 class="section-title">한국어와 영어의 차이</h3>
+                
+                <table class="comparison-table">
+                    <tr>
+                        <th>한국어</th>
+                        <th>영어</th>
+                    </tr>
+                    <tr>
+                        <td>순서를 안 지켜도 말이 통합니다</td>
+                        <td>순서를 안 지키면 말의 뜻이 바뀝니다</td>
+                    </tr>
+                    <tr>
+                        <td>주어-목적어-동사 순서</td>
+                        <td>주어-동사-목적어 순서</td>
+                    </tr>
+                    <tr>
+                        <td>조사가 문법적 관계를 표시</td>
+                        <td>단어 위치가 문법적 관계를 표시</td>
+                    </tr>
+                </table>
+                
+                <div class="note">
+                    <p><strong>한국어 문장</strong>: "나는 너를 사랑해"</p>
+                    <ul>
+                        <li>주어(나는) - 목적어(너를) - 동사(사랑해)</li>
+                    </ul>
+                    
+                    <p><strong>영어 문장</strong>: "I love you"</p>
+                    <ul>
+                        <li>주어(I) - 동사(love) - 목적어(you)</li>
+                    </ul>
+                </div>
+                
+                <div class="key-insight">
+                    <h4>🔑 핵심 비결</h4>
+                    <p style="font-size: 1.3rem; font-weight: 600;">"나는 사랑해 너를" 이 순서만 외우세요.</p>
+                </div>
+                
+                <div class="chapter-summary">
+                    <p><strong>제1과 핵심 요약:</strong></p>
+                    <p>영어에서 가장 중요한 것은 순서입니다. 영어는 주어-동사-목적어 순서를 반드시 지켜야 합니다. 이는 한국어의 주어-목적어-동사 순서와 다릅니다. 이 차이점을 이해하고 영어 순서를 따르면 영어 문장을 올바르게 만들 수 있습니다.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
